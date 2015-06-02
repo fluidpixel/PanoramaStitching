@@ -16,6 +16,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     @IBOutlet var resultText:NSTextField!
     @IBOutlet var progressText:NSTextField!
+    @IBOutlet var stitchButton:NSButton!
+    
     
     let basePath = "\(NSHomeDirectory())/Desktop/Panorama"
     var inputImages:[String] = []
@@ -48,6 +50,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     // MARK: Actions
     @IBAction func stitchButtonPressed(sender:NSButton) {
         StitchingInterface.setDelegate(self)
+        self.stitchButton.enabled = false
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
             StitchingInterface.initaliseAlgorithm(0, withResultPath: self.resultPath, withPreviewPath: "")
             
@@ -56,6 +59,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             }
             
             self.setText("Done")
+            self.stitchButton.enabled = true
         }
     }
     // MARK: StitchingInterfaceProtocol

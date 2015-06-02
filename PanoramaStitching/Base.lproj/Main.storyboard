@@ -811,6 +811,7 @@
                     <connections>
                         <outlet property="progressText" destination="Rzp-SI-CF4" id="45S-GP-lbP"/>
                         <outlet property="resultText" destination="QsL-LP-r0z" id="WjD-0X-YmK"/>
+                        <outlet property="stitchButton" destination="ZPb-IU-h1t" id="w6O-BI-V85"/>
                         <outlet property="tableView" destination="CRm-Jr-jjx" id="jIv-Nm-O1l"/>
                         <outlet property="tableViewOrderColumn" destination="qNc-d9-pwc" id="DR2-EI-haw"/>
                         <outlet property="tableViewPathColumn" destination="JGN-mT-7Gv" id="GtH-4i-9yr"/>
