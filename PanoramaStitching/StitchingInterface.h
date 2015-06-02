@@ -12,7 +12,18 @@
 
 #define BPLog(...) { { printf( __VA_ARGS__ ); printf( "\n" ); } }
 
+@protocol StitchingInterfaceProtocol
+
+-(void)setText:(NSString*)text;
+
+-(void)setProgress:(double)progress;
+
+@end
+
+
 @interface StitchingInterface : NSObject
+
++(void)setDelegate:(id<StitchingInterfaceProtocol>)delegate;
 
 +(void)initaliseAlgorithm:(int)alg withResultPath:(NSString*)resultPath withPreviewPath:(NSString*)previewPath;
 

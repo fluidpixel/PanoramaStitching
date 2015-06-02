@@ -8,13 +8,14 @@
 
 import Cocoa
 
-class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, StitchingInterfaceProtocol {
 
     @IBOutlet var tableView:NSTableView!
     @IBOutlet var tableViewOrderColumn:NSTableColumn!
     @IBOutlet var tableViewPathColumn:NSTableColumn!
     
     @IBOutlet var resultText:NSTextField!
+    @IBOutlet var progressText:NSTextField!
     
     let basePath = "\(NSHomeDirectory())/Desktop/Panorama"
     var inputImages:[String] = []
@@ -33,7 +34,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         self.tableView.setDelegate(self)
         resultText.stringValue = resultPath
         
-
+        progressText.stringValue = "Ready"
+        
         // Do any additional setup after loading the view.
     }
 
@@ -45,14 +47,30 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
 
     // MARK: Actions
     @IBAction func stitchButtonPressed(sender:NSButton) {
-        
-        StitchingInterface.initaliseAlgorithm(0, withResultPath: resultPath, withPreviewPath: "")
-        
-        for index in 0..<18 {
-            StitchingInterface.addImagePath(inputImages[index], atIndex: index, isLastImage: (index == 17) )
+        StitchingInterface.setDelegate(self)
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+            StitchingInterface.initaliseAlgorithm(0, withResultPath: self.resultPath, withPreviewPath: "")
+            
+            for index in 0..<18 {
+                StitchingInterface.addImagePath(self.inputImages[index], atIndex: index, isLastImage: (index == 17) )
+            }
+            
+            self.setText("Done")
         }
-        
     }
+    // MARK: StitchingInterfaceProtocol
+    func setText(text: String!) -> Void {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.progressText.stringValue = text
+        }
+    }
+    func setProgress(progress: Double) {
+        // TODO:
+//        dispatch_async(dispatch_get_main_queue()) {
+//        }
+    }
+    
+    
     // MARK: NSTableViewDataSource
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         if tableView == self.tableView {

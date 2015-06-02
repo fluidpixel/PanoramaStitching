@@ -9,7 +9,15 @@
 #import "StitchingInterface.h"
 #import "general_stitching_algorithm.h"
 
+static id<StitchingInterfaceProtocol> staticDelegate;
+
 @implementation StitchingInterface
+
++(void)setDelegate:(id<StitchingInterfaceProtocol>)delegate;
+{
+    staticDelegate = delegate;
+}
+
 +(void)initaliseAlgorithm:(int)alg withResultPath:(NSString*)resultPath withPreviewPath:(NSString*)previewPath;
 {
     reset();
@@ -41,25 +49,44 @@ std::string getBubblepodErrorMessage(BubblePodErrorE error) {
 }
 
 void OnInfoReturnCallback(const char* message, int count) {
-    BPLog("CALLBACK: OnInfoReturnCallback: %s, %i\n", message, count);
+    if (staticDelegate) {
+        [staticDelegate setText:[NSString stringWithUTF8String:message]];
+    }
+    //BPLog("CALLBACK: OnInfoReturnCallback: %s, %i\n", message, count);
 }
 void BubblePodOnInfoReturnCallback(const char* message, int count) {
-    BPLog("CALLBACK: BubblePodOnInfoReturnCallback: %s, %i\n", message, count);
+    if (staticDelegate) {
+        [staticDelegate setText:[NSString stringWithUTF8String:message]];
+    }
 }
 void OnResetCallback() {
-    BPLog("CALLBACK: OnResetCallback:\n");
+    [staticDelegate setText:@"Reset"];
+    //BPLog("CALLBACK: OnResetCallback:\n");
 }
 void OnImageAddedCallback(const char* path, int i) {
-    BPLog("CALLBACK: BubblePodOnImageAddedCallback: %s, %i\n", path, i);
+    [staticDelegate setText:[NSString stringWithFormat:@"Image %i added (%s)", i, path]];
+//    BPLog("CALLBACK: BubblePodOnImageAddedCallback: %s, %i\n", path, i);
 }
 void OnProcessedCallback(const char* resultPath, int images_composited, BubblePodErrorE error) {
-    if (error)  {
-        BPLog("CALLBACK: OnProcessedCallback: %s, %i\tERROR! : %s", resultPath, images_composited, getBubblepodErrorMessage(error).c_str() );
+    if (staticDelegate) {
+        if (error != ERROR_OK) {
+            [staticDelegate setText:[NSString stringWithFormat:@"%s, %i\tERROR! : %s", resultPath, images_composited, getBubblepodErrorMessage(error).c_str()]];
+        }
+        else {
+            [staticDelegate setText:[NSString stringWithFormat:@"CALLBACK: OnProcessedCallback: %s, %i", resultPath, images_composited]];
+        }
     }
-    else {
-        BPLog("CALLBACK: OnProcessedCallback: %s, %i", resultPath, images_composited );
-    }
+    
+//    if (error)  {
+//        BPLog("CALLBACK: OnProcessedCallback: %s, %i\tERROR! : %s", resultPath, images_composited, getBubblepodErrorMessage(error).c_str() );
+//    }
+//    else {
+//        BPLog("CALLBACK: OnProcessedCallback: %s, %i", resultPath, images_composited );
+//    }
 }
 void OnErrorCallback(BubblePodErrorE error) {
-    BPLog("CALLBACK: OnErrorCallback: %s", getBubblepodErrorMessage(error).c_str() );
+    if (staticDelegate) {
+        [staticDelegate setText:[NSString stringWithFormat:@"Error: %s", getBubblepodErrorMessage(error).c_str()]];
+    }
+    //BPLog("CALLBACK: OnErrorCallback: %s", getBubblepodErrorMessage(error).c_str() );
 }
