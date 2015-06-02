@@ -1,0 +1,359 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA22E3B01B1D9C2500C45DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA22E3AF1B1D9C2500C45DFC /* AppDelegate.swift */; };
+		DA22E3B21B1D9C2500C45DFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA22E3B11B1D9C2500C45DFC /* ViewController.swift */; };
+		DA22E3B41B1D9C2500C45DFC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA22E3B31B1D9C2500C45DFC /* Images.xcassets */; };
+		DA22E3B71B1D9C2500C45DFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA22E3B51B1D9C2500C45DFC /* Main.storyboard */; };
+		DA22E3D31B1DA20400C45DFC /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA22E3D21B1DA20400C45DFC /* CoreFoundation.framework */; };
+		DA22E3D51B1DA20D00C45DFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA22E3D41B1DA20D00C45DFC /* Foundation.framework */; };
+		DA22E3D71B1DA21800C45DFC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA22E3D61B1DA21800C45DFC /* QuartzCore.framework */; };
+		DA22E3E11B1DA44C00C45DFC /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA22E3E01B1DA44C00C45DFC /* opencv2.framework */; };
+		DA22E3ED1B1DC2C600C45DFC /* BPRefiner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA22E3EB1B1DC2C600C45DFC /* BPRefiner.cpp */; };
+		DA22E3FB1B1DEB1700C45DFC /* StitchingInterface.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA22E3FA1B1DEB1700C45DFC /* StitchingInterface.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DA22E3AA1B1D9C2500C45DFC /* PanoramaStitching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PanoramaStitching.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA22E3AE1B1D9C2500C45DFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA22E3AF1B1D9C2500C45DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DA22E3B11B1D9C2500C45DFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DA22E3B31B1D9C2500C45DFC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DA22E3B61B1D9C2500C45DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA22E3CE1B1DA16A00C45DFC /* PanoramaStitching-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PanoramaStitching-Bridging-Header.h"; sourceTree = "<group>"; };
+		DA22E3D21B1DA20400C45DFC /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		DA22E3D41B1DA20D00C45DFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DA22E3D61B1DA21800C45DFC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DA22E3E01B1DA44C00C45DFC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = PanoramaStitching/opencv2.framework; sourceTree = "<group>"; };
+		DA22E3EB1B1DC2C600C45DFC /* BPRefiner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BPRefiner.cpp; sourceTree = "<group>"; };
+		DA22E3EC1B1DC2C600C45DFC /* BPRefiner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPRefiner.h; sourceTree = "<group>"; };
+		DA22E3F51B1DC7BD00C45DFC /* general_stitching_algorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = general_stitching_algorithm.h; sourceTree = "<group>"; };
+		DA22E3F91B1DEB1700C45DFC /* StitchingInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StitchingInterface.h; sourceTree = "<group>"; };
+		DA22E3FA1B1DEB1700C45DFC /* StitchingInterface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StitchingInterface.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA22E3A71B1D9C2500C45DFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA22E3E11B1DA44C00C45DFC /* opencv2.framework in Frameworks */,
+				DA22E3D71B1DA21800C45DFC /* QuartzCore.framework in Frameworks */,
+				DA22E3D51B1DA20D00C45DFC /* Foundation.framework in Frameworks */,
+				DA22E3D31B1DA20400C45DFC /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA22E3A11B1D9C2400C45DFC = {
+			isa = PBXGroup;
+			children = (
+				DA22E3DD1B1DA36B00C45DFC /* Frameworks */,
+				DA22E3AC1B1D9C2500C45DFC /* PanoramaStitching */,
+				DA22E3AB1B1D9C2500C45DFC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA22E3AB1B1D9C2500C45DFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA22E3AA1B1D9C2500C45DFC /* PanoramaStitching.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA22E3AC1B1D9C2500C45DFC /* PanoramaStitching */ = {
+			isa = PBXGroup;
+			children = (
+				DA22E3CE1B1DA16A00C45DFC /* PanoramaStitching-Bridging-Header.h */,
+				DA22E3F61B1DE8D900C45DFC /* UI */,
+				DA22E3CC1B1D9C8800C45DFC /* Stitching */,
+				DA22E3AD1B1D9C2500C45DFC /* Supporting Files */,
+			);
+			path = PanoramaStitching;
+			sourceTree = "<group>";
+		};
+		DA22E3AD1B1D9C2500C45DFC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA22E3AE1B1D9C2500C45DFC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA22E3CC1B1D9C8800C45DFC /* Stitching */ = {
+			isa = PBXGroup;
+			children = (
+				DA22E3F91B1DEB1700C45DFC /* StitchingInterface.h */,
+				DA22E3FA1B1DEB1700C45DFC /* StitchingInterface.mm */,
+				DA22E3F51B1DC7BD00C45DFC /* general_stitching_algorithm.h */,
+				DA22E3EB1B1DC2C600C45DFC /* BPRefiner.cpp */,
+				DA22E3EC1B1DC2C600C45DFC /* BPRefiner.h */,
+			);
+			name = Stitching;
+			sourceTree = "<group>";
+		};
+		DA22E3DD1B1DA36B00C45DFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA22E3E01B1DA44C00C45DFC /* opencv2.framework */,
+				DA22E3D61B1DA21800C45DFC /* QuartzCore.framework */,
+				DA22E3D41B1DA20D00C45DFC /* Foundation.framework */,
+				DA22E3D21B1DA20400C45DFC /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA22E3F61B1DE8D900C45DFC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DA22E3AF1B1D9C2500C45DFC /* AppDelegate.swift */,
+				DA22E3B11B1D9C2500C45DFC /* ViewController.swift */,
+				DA22E3B51B1D9C2500C45DFC /* Main.storyboard */,
+				DA22E3B31B1D9C2500C45DFC /* Images.xcassets */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA22E3A91B1D9C2500C45DFC /* PanoramaStitching */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA22E3C61B1D9C2500C45DFC /* Build configuration list for PBXNativeTarget "PanoramaStitching" */;
+			buildPhases = (
+				DA22E3A61B1D9C2500C45DFC /* Sources */,
+				DA22E3A71B1D9C2500C45DFC /* Frameworks */,
+				DA22E3A81B1D9C2500C45DFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PanoramaStitching;
+			productName = PanoramaStitching;
+			productReference = DA22E3AA1B1D9C2500C45DFC /* PanoramaStitching.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA22E3A21B1D9C2400C45DFC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Fluid Pixel";
+				TargetAttributes = {
+					DA22E3A91B1D9C2500C45DFC = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+				};
+			};
+			buildConfigurationList = DA22E3A51B1D9C2400C45DFC /* Build configuration list for PBXProject "PanoramaStitching" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA22E3A11B1D9C2400C45DFC;
+			productRefGroup = DA22E3AB1B1D9C2500C45DFC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA22E3A91B1D9C2500C45DFC /* PanoramaStitching */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA22E3A81B1D9C2500C45DFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA22E3B41B1D9C2500C45DFC /* Images.xcassets in Resources */,
+				DA22E3B71B1D9C2500C45DFC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA22E3A61B1D9C2500C45DFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA22E3ED1B1DC2C600C45DFC /* BPRefiner.cpp in Sources */,
+				DA22E3B21B1D9C2500C45DFC /* ViewController.swift in Sources */,
+				DA22E3FB1B1DEB1700C45DFC /* StitchingInterface.mm in Sources */,
+				DA22E3B01B1D9C2500C45DFC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DA22E3B51B1D9C2500C45DFC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA22E3B61B1D9C2500C45DFC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA22E3C41B1D9C2500C45DFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DA22E3C51B1D9C2500C45DFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DA22E3C71B1D9C2500C45DFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PanoramaStitching/Libraries",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/PanoramaStitching",
+				);
+				INFOPLIST_FILE = PanoramaStitching/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PanoramaStitching/PanoramaStitching-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DA22E3C81B1D9C2500C45DFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PanoramaStitching/Libraries",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/PanoramaStitching",
+				);
+				INFOPLIST_FILE = PanoramaStitching/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PanoramaStitching/PanoramaStitching-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA22E3A51B1D9C2400C45DFC /* Build configuration list for PBXProject "PanoramaStitching" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA22E3C41B1D9C2500C45DFC /* Debug */,
+				DA22E3C51B1D9C2500C45DFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA22E3C61B1D9C2500C45DFC /* Build configuration list for PBXNativeTarget "PanoramaStitching" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA22E3C71B1D9C2500C45DFC /* Debug */,
+				DA22E3C81B1D9C2500C45DFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA22E3A21B1D9C2400C45DFC /* Project object */;
+}
