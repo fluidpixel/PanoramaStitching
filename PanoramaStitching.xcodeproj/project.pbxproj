@@ -31,9 +31,9 @@
 		DA22E3D41B1DA20D00C45DFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DA22E3D61B1DA21800C45DFC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DA22E3E01B1DA44C00C45DFC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = PanoramaStitching/opencv2.framework; sourceTree = "<group>"; };
-		DA22E3EB1B1DC2C600C45DFC /* BPRefiner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BPRefiner.cpp; sourceTree = "<group>"; };
-		DA22E3EC1B1DC2C600C45DFC /* BPRefiner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPRefiner.h; sourceTree = "<group>"; };
-		DA22E3F51B1DC7BD00C45DFC /* general_stitching_algorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = general_stitching_algorithm.h; sourceTree = "<group>"; };
+		DA22E3EB1B1DC2C600C45DFC /* BPRefiner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BPRefiner.cpp; path = Stitching/BPRefiner.cpp; sourceTree = "<group>"; };
+		DA22E3EC1B1DC2C600C45DFC /* BPRefiner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BPRefiner.h; path = Stitching/BPRefiner.h; sourceTree = "<group>"; };
+		DA22E3F51B1DC7BD00C45DFC /* general_stitching_algorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = general_stitching_algorithm.h; path = Stitching/general_stitching_algorithm.h; sourceTree = "<group>"; };
 		DA22E3F91B1DEB1700C45DFC /* StitchingInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StitchingInterface.h; sourceTree = "<group>"; };
 		DA22E3FA1B1DEB1700C45DFC /* StitchingInterface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StitchingInterface.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
