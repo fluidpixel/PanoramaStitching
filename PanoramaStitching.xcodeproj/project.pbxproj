@@ -18,6 +18,7 @@
 		DA22E3ED1B1DC2C600C45DFC /* BPRefiner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA22E3EB1B1DC2C600C45DFC /* BPRefiner.cpp */; };
 		DA22E3FB1B1DEB1700C45DFC /* StitchingInterface.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA22E3FA1B1DEB1700C45DFC /* StitchingInterface.mm */; };
 		DA5AD1901B25797E00B2D1AF /* SampleImages in Resources */ = {isa = PBXBuildFile; fileRef = DA5AD18F1B25797E00B2D1AF /* SampleImages */; };
+		DA5AD1921B259A9100B2D1AF /* PanoramaViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5AD1911B259A9100B2D1AF /* PanoramaViewer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		DA22E3F91B1DEB1700C45DFC /* StitchingInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StitchingInterface.h; sourceTree = "<group>"; };
 		DA22E3FA1B1DEB1700C45DFC /* StitchingInterface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StitchingInterface.mm; sourceTree = "<group>"; };
 		DA5AD18F1B25797E00B2D1AF /* SampleImages */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SampleImages; path = PanoramaStitching/SampleImages; sourceTree = "<group>"; };
+		DA5AD1911B259A9100B2D1AF /* PanoramaViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanoramaViewer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				DA22E3AF1B1D9C2500C45DFC /* AppDelegate.swift */,
 				DA22E3B11B1D9C2500C45DFC /* ViewController.swift */,
+				DA5AD1911B259A9100B2D1AF /* PanoramaViewer.swift */,
 				DA22E3B51B1D9C2500C45DFC /* Main.storyboard */,
 				DA22E3B31B1D9C2500C45DFC /* Images.xcassets */,
 			);
@@ -196,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5AD1921B259A9100B2D1AF /* PanoramaViewer.swift in Sources */,
 				DA22E3ED1B1DC2C600C45DFC /* BPRefiner.cpp in Sources */,
 				DA22E3B21B1D9C2500C45DFC /* ViewController.swift in Sources */,
 				DA22E3FB1B1DEB1700C45DFC /* StitchingInterface.mm in Sources */,

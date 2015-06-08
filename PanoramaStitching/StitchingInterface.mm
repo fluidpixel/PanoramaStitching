@@ -74,15 +74,9 @@ void OnProcessedCallback(const char* resultPath, int images_composited, BubblePo
         }
         else {
             [staticDelegate setText:[NSString stringWithFormat:@"CALLBACK: OnProcessedCallback: %s, %i", resultPath, images_composited]];
+            [staticDelegate didFinishProcessingSuccessfully:[NSString stringWithUTF8String:resultPath]];
         }
     }
-    
-//    if (error)  {
-//        BPLog("CALLBACK: OnProcessedCallback: %s, %i\tERROR! : %s", resultPath, images_composited, getBubblepodErrorMessage(error).c_str() );
-//    }
-//    else {
-//        BPLog("CALLBACK: OnProcessedCallback: %s, %i", resultPath, images_composited );
-//    }
 }
 void OnErrorCallback(BubblePodErrorE error) {
     if (staticDelegate) {

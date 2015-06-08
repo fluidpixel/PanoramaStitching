@@ -8,12 +8,16 @@
 
 import Cocoa
 
+let PanoramaStitchingApp = NSApplication.sharedApplication().delegate as? AppDelegate
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
+    var panoramaViewerWindow:NSWindowController!
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        panoramaViewerWindow = NSStoryboard(name: "Main", bundle: nil)!.instantiateControllerWithIdentifier("PanoramaView") as! NSWindowController
+
         // Insert code here to initialize your application
     }
 
@@ -21,6 +25,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
-
+    
+    func openPanoramaViewer(path:String) {
+        let viewer = panoramaViewerWindow.contentViewController as! PanoramaViewer
+        
+        viewer.imagePath = path
+        
+        panoramaViewerWindow.showWindow(self)
+        
+    }
+    
 }
-

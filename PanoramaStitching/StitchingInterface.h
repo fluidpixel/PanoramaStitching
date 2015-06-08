@@ -18,6 +18,8 @@
 
 -(void)setProgress:(double)progress;
 
+-(void)didFinishProcessingSuccessfully:(NSString*)resultPath;
+
 @end
 
 

@@ -52,7 +52,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         resultText.stringValue = resultPath
         
         progressText.stringValue = "Ready"
-        
+
         // Do any additional setup after loading the view.
     }
 
@@ -64,7 +64,9 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
 
     // MARK: Actions
     @IBAction func stitchButtonPressed(sender:NSButton) {
+    
         StitchingInterface.setDelegate(self)
+        
         self.stitchButton.enabled = false
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
             StitchingInterface.initaliseAlgorithm(0, withResultPath: self.resultPath, withPreviewPath: "")
@@ -92,7 +94,11 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
 //        dispatch_async(dispatch_get_main_queue()) {
 //        }
     }
-    
+    func didFinishProcessingSuccessfully(resultPath: String!) {
+        dispatch_async(dispatch_get_main_queue()) {
+            PanoramaStitchingApp?.openPanoramaViewer(resultPath)
+        }
+    }
     
     // MARK: NSTableViewDataSource
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {

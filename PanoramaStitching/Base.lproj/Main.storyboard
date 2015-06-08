@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+        <plugIn identifier="com.apple.SceneKitIBPlugin" version="7706"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -663,6 +664,52 @@
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--PanoramaView-->
+        <scene sceneID="Pa4-sD-uP2">
+            <objects>
+                <windowController storyboardIdentifier="PanoramaView" id="iRf-7S-bDB" userLabel="PanoramaView" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="GEz-Gz-5wa" userLabel="PanoramaViewWindow">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                    </window>
+                    <connections>
+                        <segue destination="jU4-wg-Ht5" kind="relationship" relationship="window.shadowedContentViewController" id="2TH-LU-1ZD"/>
+                    </connections>
+                </windowController>
+                <customObject id="4eB-8h-LGF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="613" y="250"/>
+        </scene>
+        <!--Panorama Viewer-->
+        <scene sceneID="FUK-BT-0mD">
+            <objects>
+                <viewController id="jU4-wg-Ht5" customClass="PanoramaViewer" customModule="PanoramaStitching" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="XBJ-Td-hn0">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <sceneView loops="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufT-h2-OGq">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </sceneView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ufT-h2-OGq" firstAttribute="leading" secondItem="XBJ-Td-hn0" secondAttribute="leading" id="B1c-0g-SWA"/>
+                            <constraint firstAttribute="trailing" secondItem="ufT-h2-OGq" secondAttribute="trailing" id="Kpu-cH-a0c"/>
+                            <constraint firstItem="ufT-h2-OGq" firstAttribute="top" secondItem="XBJ-Td-hn0" secondAttribute="top" id="NZf-Mg-t8h"/>
+                            <constraint firstAttribute="bottom" secondItem="ufT-h2-OGq" secondAttribute="bottom" id="msG-OU-Wvs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scene" destination="ufT-h2-OGq" id="CCF-s8-iVS"/>
+                    </connections>
+                </viewController>
+                <customObject id="rS3-qU-Sci" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="613" y="681"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
