@@ -21,26 +21,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     var inputImages:[String] = []
     var resultPath = ""
     
-    var imageAttitudes:[(w:Double, x:Double, y:Double, z:Double)] = [
-        (0.211378,	0.230308,	0.705061,	0.636527),
-        (0.35838,	0.369747,	0.641036,	0.569144),
-        (0.461144,	0.487013,	0.565393,	0.480099),
-        (0.55402,	0.567375,	0.465565,	0.392935),
-        (0.617761,	0.627596,	0.364741,	0.302422),
-        (0.708924,	0.627455,	0.240336,	0.214398),
-        (0.748001,	0.634226,	0.15022,	0.125242),
-        (0.765404,	0.637805,	0.0739526,	0.0434995),
-        (0.771624,	0.634829,	-0.00571326,	-0.0394398),
-        (0.7549,	0.639066,	-0.0831885,	-0.121659),
-        (0.741092,	0.617709,	-0.162128,	-0.207202),
-        (0.703308,	0.592275,	-0.255544,	-0.298772),
-        (0.639939,	0.559324,	-0.361379,	-0.383457),
-        (0.532003,	0.507842,	-0.494965,	-0.462686),
-        (0.435126,	0.405542,	-0.589413,	-0.546619),
-        (0.300774,	0.274011,	-0.676073,	-0.614311),
-        (0.149594,	0.115304,	-0.739599,	-0.646003),
-        (-0.0119513,	-0.0582277,	-0.74929,	-0.659569)
-    ]
+    var imageAttitudes:[(w:Double, x:Double, y:Double, z:Double)] = []
     
     override func viewDidLoad() {
         
@@ -52,6 +33,19 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         }
         
         resultPath = inputImages[0].stringByDeletingLastPathComponent.stringByAppendingPathComponent("result.jpg")
+        
+        let attitudePath = NSBundle.mainBundle().pathForResource("raw_attitude", ofType: "txt", inDirectory: "SampleImages")!
+        let attitudeFile = String(contentsOfFile: attitudePath, encoding: NSUTF8StringEncoding, error: nil)!
+        let attitudeData = attitudeFile.componentsSeparatedByString("\n").map { $0.componentsSeparatedByString(",\t") }.filter { $0.count == 5 }
+        imageAttitudes.reserveCapacity(attitudeData.count)
+        for i in 0..<attitudeData.count {
+            let index = (attitudeData[i][0] as NSString).integerValue
+            let w = (attitudeData[i][1] as NSString).doubleValue
+            let x = (attitudeData[i][2] as NSString).doubleValue
+            let y = (attitudeData[i][3] as NSString).doubleValue
+            let z = (attitudeData[i][4] as NSString).doubleValue
+            imageAttitudes.insert((w, x, y, z), atIndex: index)
+        }
         
         self.tableView.setDataSource(self)
         self.tableView.setDelegate(self)
