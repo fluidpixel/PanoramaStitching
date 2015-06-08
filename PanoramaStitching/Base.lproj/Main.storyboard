@@ -671,8 +671,8 @@
                 <windowController storyboardIdentifier="PanoramaView" id="iRf-7S-bDB" userLabel="PanoramaView" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="GEz-Gz-5wa" userLabel="PanoramaViewWindow">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
+                        <rect key="contentRect" x="24" y="612" width="800" height="256"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                     </window>
                     <connections>
@@ -681,18 +681,18 @@
                 </windowController>
                 <customObject id="4eB-8h-LGF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613" y="250"/>
+            <point key="canvasLocation" x="758" y="108"/>
         </scene>
         <!--Panorama Viewer-->
         <scene sceneID="FUK-BT-0mD">
             <objects>
                 <viewController id="jU4-wg-Ht5" customClass="PanoramaViewer" customModule="PanoramaStitching" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="XBJ-Td-hn0">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="256"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <sceneView loops="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufT-h2-OGq">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="256"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </sceneView>
                         </subviews>
@@ -709,7 +709,7 @@
                 </viewController>
                 <customObject id="rS3-qU-Sci" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613" y="681"/>
+            <point key="canvasLocation" x="792" y="528"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
