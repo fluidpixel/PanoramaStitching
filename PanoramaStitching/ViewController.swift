@@ -18,9 +18,10 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     @IBOutlet var progressText:NSTextField!
     @IBOutlet var stitchButton:NSButton!
     
+    @IBOutlet var progressBar:NSProgressIndicator!
+    
     var inputImages:[String] = []
     var resultPath = ""
-    
     var imageAttitudes:[(w:Double, x:Double, y:Double, z:Double)] = []
     
     override func viewDidLoad() {
@@ -80,25 +81,39 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             }
             
             self.setText("Done")
+            self.setProgress(Double.NaN)
             self.stitchButton.enabled = true
         }
     }
+    
+    
     // MARK: StitchingInterfaceProtocol
     func setText(text: String!) -> Void {
         dispatch_async(dispatch_get_main_queue()) {
             self.progressText.stringValue = text
         }
     }
+    
     func setProgress(progress: Double) {
-        // TODO:
-//        dispatch_async(dispatch_get_main_queue()) {
-//        }
+        dispatch_async(dispatch_get_main_queue()) {
+            if progress >= 0 {
+                if self.progressBar.indeterminate {
+                    self.progressBar.indeterminate = false
+                }
+                self.progressBar.doubleValue = progress
+            }
+            else {
+                self.progressBar.indeterminate = true
+            }
+        }
     }
+    
     func didFinishProcessingSuccessfully(resultPath: String!) {
         dispatch_async(dispatch_get_main_queue()) {
             PanoramaStitchingApp?.openPanoramaViewer(resultPath)
         }
     }
+    
     
     // MARK: NSTableViewDataSource
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {

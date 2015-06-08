@@ -51,6 +51,7 @@ std::string getBubblepodErrorMessage(BubblePodErrorE error) {
 void OnInfoReturnCallback(const char* message, int count) {
     if (staticDelegate) {
         [staticDelegate setText:[NSString stringWithUTF8String:message]];
+        [staticDelegate setProgress:NAN];
     }
     //BPLog("CALLBACK: OnInfoReturnCallback: %s, %i\n", message, count);
 }

@@ -831,13 +831,21 @@
                                     <action selector="stitchButtonPressed:" target="XfG-lQ-9wD" id="g1N-2f-gB1"/>
                                 </connections>
                             </button>
+                            <progressIndicator maxValue="100" indeterminate="YES" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="NgL-oY-AK2">
+                                <rect key="frame" x="20" y="34" width="362" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="bhY-tk-SB3"/>
+                                </constraints>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
                             <constraint firstItem="ZPb-IU-h1t" firstAttribute="top" secondItem="QsL-LP-r0z" secondAttribute="bottom" constant="20" id="3L3-CO-yqu"/>
                             <constraint firstAttribute="trailing" secondItem="gWz-T2-c0T" secondAttribute="trailing" constant="20" id="4NZ-Go-eEX"/>
                             <constraint firstAttribute="trailing" secondItem="VDd-OS-gk0" secondAttribute="trailing" constant="20" id="4Tk-2a-wWH"/>
+                            <constraint firstItem="ZPb-IU-h1t" firstAttribute="leading" secondItem="NgL-oY-AK2" secondAttribute="trailing" constant="8" id="4dL-ig-GxG"/>
                             <constraint firstAttribute="trailing" secondItem="ZPb-IU-h1t" secondAttribute="trailing" constant="20" id="9iP-OA-qOK"/>
                             <constraint firstItem="gWz-T2-c0T" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="9n5-uM-89I"/>
+                            <constraint firstItem="NgL-oY-AK2" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="B2W-7z-69A"/>
                             <constraint firstItem="QsL-LP-r0z" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="CdV-7Z-deZ"/>
                             <constraint firstItem="QsL-LP-r0z" firstAttribute="top" secondItem="VDd-OS-gk0" secondAttribute="bottom" constant="4" id="F8x-NO-bqc"/>
                             <constraint firstItem="Rzp-SI-CF4" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="FZ7-oi-OHb"/>
@@ -851,11 +859,13 @@
                             <constraint firstItem="jzo-84-l17" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="hoh-nh-aUI"/>
                             <constraint firstItem="VDd-OS-gk0" firstAttribute="top" secondItem="jzo-84-l17" secondAttribute="bottom" constant="4" id="lhA-JS-IFi"/>
                             <constraint firstItem="jzo-84-l17" firstAttribute="top" secondItem="gWz-T2-c0T" secondAttribute="bottom" constant="3" id="qb9-ll-Rb4"/>
+                            <constraint firstItem="NgL-oY-AK2" firstAttribute="top" secondItem="QsL-LP-r0z" secondAttribute="bottom" constant="8" id="tbL-bh-f5S"/>
                             <constraint firstItem="gWz-T2-c0T" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="u7c-Zv-Ybv"/>
                             <constraint firstAttribute="trailing" secondItem="QsL-LP-r0z" secondAttribute="trailing" constant="20" id="y3h-mL-Fn8"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="progressBar" destination="NgL-oY-AK2" id="xTV-KP-7kS"/>
                         <outlet property="progressText" destination="Rzp-SI-CF4" id="45S-GP-lbP"/>
                         <outlet property="resultText" destination="QsL-LP-r0z" id="WjD-0X-YmK"/>
                         <outlet property="stitchButton" destination="ZPb-IU-h1t" id="w6O-BI-V85"/>
