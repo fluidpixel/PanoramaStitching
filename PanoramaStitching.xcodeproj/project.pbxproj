@@ -309,7 +309,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/PanoramaStitching/Libraries",
+					"$(PROJECT_DIR)/PanoramaStitching/Stitching",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/PanoramaStitching",
 				);
@@ -329,7 +329,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/PanoramaStitching/Libraries",
+					"$(PROJECT_DIR)/PanoramaStitching/Stitching",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/PanoramaStitching",
 				);
