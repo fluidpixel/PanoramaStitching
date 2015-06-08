@@ -82,7 +82,6 @@ bool isProcessing = false;
 typedef void (*task_fptr)(std::list<int> int_params, std::list<std::string> string_params);
 //void addTaskToThread1(task_fptr fptr, std::string taskName, std::list<int> int_params, std::list<std::string> string_params);
 void addTaskToThread1(task_fptr fptr, std::string taskName, std::list<int> int_params, std::list<std::string> string_params) {
-    BPLog("Running task <%s> synchronously", taskName.c_str());
     fptr(int_params, string_params);
 }
 
@@ -157,7 +156,6 @@ static int initialise() {
 
 static void setIsCapturingHD(int value) {
     isCapturingHD = value;
-    BPLog("Is Capturing in HD: %d", value);
 }
 
 int reset() {
@@ -217,10 +215,6 @@ int process(char* resultPath) {
     cameras_global.resize(num_images);
     vector<CameraParams> cameras = cameras_global;
     cameras_global.clear();
-    
-
-    
-    
     
     isProcessing = true;
     BPLog("Processing");
@@ -284,7 +278,7 @@ int process(char* resultPath) {
     
     BPLog("\nPairwise matching");
     
-    BubblePodOnInfoReturnCallback((char*) "Stage 1/3: Finding matches", 0);
+    OnProgressReturnCallback("Stage 1/3: Finding matches", 0.0, num_images + 2);
     
     vector<MatchesInfo> pairwise_matches;
     BestOf2NearestMatcher matcher(try_gpu, match_conf);
@@ -372,7 +366,7 @@ int process(char* resultPath) {
     // Find median focal length
     double warped_image_scale;
     {
-        BPLog("Doing warped image scaling");
+
         vector<double> focals;
         
         for (size_t i = 0; i < cameras.size(); ++i) focals.push_back(cameras[i].focal);
@@ -381,12 +375,10 @@ int process(char* resultPath) {
         if (focals.size() % 2 == 1) warped_image_scale = focals[focals.size() / 2];
         else                        warped_image_scale = (focals[focals.size() / 2 - 1] + focals[focals.size() / 2]) * 0.5f;
         
-        BPLog("Done warped image scaling");
     }
     BPLog("\nInitial focal estimate: %f\nMedian focal estimate: %f\n", oldFocal, warped_image_scale);
     
     if (do_wave_correct) {
-        BPLog("Doing wave correct");
         
         vector < Mat > rmats;
         
@@ -399,13 +391,13 @@ int process(char* resultPath) {
         for (size_t i = 0; i < cameras.size(); ++i)
             cameras[i].R = rmats[i];
         
-        BPLog("Done wave correct");
     }
     
     // End of image 'Registration'
     
     
-    BubblePodOnInfoReturnCallback((char*) "Stage 2/3: Modifying images", 0);
+    OnProgressReturnCallback("Stage 2/3: Modifying images", 1.0, num_images + 2);
+
     
     // Warp images and their masks
     Ptr < WarperCreator > warper_creator;
@@ -582,9 +574,8 @@ int process(char* resultPath) {
         masks_warped[i] = dilated_mask;
     }
     
-    
-    BPLog("Compositing...");
-    BubblePodOnInfoReturnCallback((char*) "Stage 3/3: Stitching", 0);
+    OnProgressReturnCallback("Stage 3/3: Stitching", 2.0, num_images + 2);
+
     
     int64 compose_start_time = getTickCount();
     
@@ -640,9 +631,6 @@ int process(char* resultPath) {
     }
     blender->prepare(destROI);
     
-    std::string message;
-    BubblePodOnInfoReturnCallback((char*)"Stage 3/3: Stitching 0%", 0);
-    
     Mat full_img, img;
     Mat xmap, ymap;
     Mat imgWarped, maskWarped, seamMask;
@@ -673,13 +661,9 @@ int process(char* resultPath) {
         
         // Build maps once for both image and mask
         
-        message = "Stage 3/3: Stitching " + std::to_string( int(100.0 * float(img_idx + 0.15) / float(num_images)) ) + "%";
-        BubblePodOnInfoReturnCallback((char*)message.c_str(), 0);
-        
+        OnProgressReturnCallback("Stage 3/3: Stitching", float(img_idx + 2.15), num_images + 2);
         cv::Rect roi = warper->buildMaps(img_size, K, cameras[img_idx].R, xmap, ymap);
-        
-        message = "Stage 3/3: Stitching " + std::to_string( int(100.0 * float(img_idx + 0.75) / float(num_images)) ) + "%";
-        BubblePodOnInfoReturnCallback((char*)message.c_str(), 0);
+        OnProgressReturnCallback("Stage 3/3: Stitching", float(img_idx + 2.75), num_images + 2);
         
         // Apply maps to the image
         remap(img, imgWarped, xmap, ymap, INTER_LINEAR, BORDER_REFLECT);
@@ -708,14 +692,12 @@ int process(char* resultPath) {
         
     }
     
-    BubblePodOnInfoReturnCallback((char*)"Stage 3/3: Stitching 100%", 0);
+    OnProgressReturnCallback("Stage 3/3: Stitching", float(num_images + 2), num_images + 2);
     
     mask.release();
     
     Mat result, result_mask;
     blender->blend(result, result_mask);
-    
-    BPLog("Composited");
     
     OnInfoReturnCallback((char*) "Stitched", num_images);
     
@@ -725,8 +707,6 @@ int process(char* resultPath) {
     imwrite(resultPath, result);
     
     cout << "\nFinished, total time: " << ((getTickCount() - app_start_time) / getTickFrequency())   << " sec";
-    
-    BPLog("Finished, going to process callback");
     
     OnProcessedCallback(resultPath, num_images, ERROR_OK);
     
@@ -781,8 +761,6 @@ static void initialiseAlgorithm(int alg, char* resultPath, char* resultPathPrevi
 }
 
 static void process_task(list<int> int_params, list<string> string_params) {
-
-    BPLog("Processing task: %s", (char*)string_params.front().c_str());
     
     process((char*) string_params.front().c_str());
     
@@ -860,7 +838,6 @@ static void feature_finding_task(list<int> int_params,
     
     BPLog("Features in image: #%d %lu", i + 1, features_global[i].keypoints.size());
     
-
     resize(full_img, img, cv::Size(), seam_scale, seam_scale);
     
     img.convertTo(images_global[i], CV_32F);

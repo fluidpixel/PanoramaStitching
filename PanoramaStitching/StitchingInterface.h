@@ -46,7 +46,7 @@ typedef enum BP_ERROR {
 } BubblePodErrorE;
 
 void OnInfoReturnCallback(const char* message, int count);
-void BubblePodOnInfoReturnCallback(const char* message, int count);
+void OnProgressReturnCallback(const char* message, double progress, int count);
 void OnResetCallback();
 void OnImageAddedCallback(const char* path, int i);
 void OnProcessedCallback(const char* resultPath, int images_composited, BubblePodErrorE error);

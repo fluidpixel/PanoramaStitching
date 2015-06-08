@@ -54,9 +54,11 @@ void OnInfoReturnCallback(const char* message, int count) {
     }
     //BPLog("CALLBACK: OnInfoReturnCallback: %s, %i\n", message, count);
 }
-void BubblePodOnInfoReturnCallback(const char* message, int count) {
+void OnProgressReturnCallback(const char* message, double progress, int count) {
     if (staticDelegate) {
-        [staticDelegate setText:[NSString stringWithUTF8String:message]];
+        float progressPercent = 100.0 * progress / float(count);
+        [staticDelegate setText:[NSString stringWithFormat:@"%s %0.f%%", message, progressPercent]];
+        [staticDelegate setProgress:progressPercent];
     }
 }
 void OnResetCallback() {
