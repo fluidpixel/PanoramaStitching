@@ -17,6 +17,7 @@
 		DA22E3E11B1DA44C00C45DFC /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA22E3E01B1DA44C00C45DFC /* opencv2.framework */; };
 		DA22E3ED1B1DC2C600C45DFC /* BPRefiner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA22E3EB1B1DC2C600C45DFC /* BPRefiner.cpp */; };
 		DA22E3FB1B1DEB1700C45DFC /* StitchingInterface.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA22E3FA1B1DEB1700C45DFC /* StitchingInterface.mm */; };
+		DA5AD1901B25797E00B2D1AF /* SampleImages in Resources */ = {isa = PBXBuildFile; fileRef = DA5AD18F1B25797E00B2D1AF /* SampleImages */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		DA22E3F51B1DC7BD00C45DFC /* general_stitching_algorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = general_stitching_algorithm.h; path = Stitching/general_stitching_algorithm.h; sourceTree = "<group>"; };
 		DA22E3F91B1DEB1700C45DFC /* StitchingInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StitchingInterface.h; sourceTree = "<group>"; };
 		DA22E3FA1B1DEB1700C45DFC /* StitchingInterface.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StitchingInterface.mm; sourceTree = "<group>"; };
+		DA5AD18F1B25797E00B2D1AF /* SampleImages */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SampleImages; path = PanoramaStitching/SampleImages; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		DA22E3A11B1D9C2400C45DFC = {
 			isa = PBXGroup;
 			children = (
+				DA5AD18F1B25797E00B2D1AF /* SampleImages */,
 				DA22E3DD1B1DA36B00C45DFC /* Frameworks */,
 				DA22E3AC1B1D9C2500C45DFC /* PanoramaStitching */,
 				DA22E3AB1B1D9C2500C45DFC /* Products */,
@@ -182,6 +185,7 @@
 			files = (
 				DA22E3B41B1D9C2500C45DFC /* Images.xcassets in Resources */,
 				DA22E3B71B1D9C2500C45DFC /* Main.storyboard in Resources */,
+				DA5AD1901B25797E00B2D1AF /* SampleImages in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

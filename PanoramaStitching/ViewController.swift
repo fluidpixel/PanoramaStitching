@@ -18,8 +18,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     @IBOutlet var progressText:NSTextField!
     @IBOutlet var stitchButton:NSButton!
     
-    
-    let basePath = "\(NSHomeDirectory())/Desktop/Panorama"
     var inputImages:[String] = []
     var resultPath = ""
     
@@ -28,9 +26,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         super.viewDidLoad()
         
         for index in 0..<18 {
-            inputImages.append("\(basePath)/rawImage_\(index).jpg")
         }
-        resultPath = "\(basePath)/result.jpg"
         
         self.tableView.setDataSource(self)
         self.tableView.setDelegate(self)
