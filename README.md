@@ -24,6 +24,6 @@ KNOWN ISSUES:
 
 TODO:
 
-Add sample images
-Add camera rotation information
+Add sample images -- done
+Add camera rotation information -- done
 Finish front-end to allow the user to choose input/output files.
